@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { useAppContext } from "../store/store";
 
+import { Link } from "react-router-dom";
+
 export default function Create() {
     const [title, setTitle] = useState("");
     const [author, setAuthor] = useState("");
@@ -14,21 +16,22 @@ export default function Create() {
     function handleChange(e) {
         const name = e.target.name;
         const value = e.target.value;
+
         switch (name) {
-            case 'title':
-                setTitle(value)
+            case "title":
+                setTitle(value);
                 break;
-            case 'author':
-                setAuthor(value)
+            case "author":
+                setAuthor(value);
                 break;
-            case 'intro':
-                setIntro(value)
+            case "intro":
+                setIntro(value);
                 break;
-            case 'completed':
-                setCompleted(e.target.checked)
+            case "completed":
+                setCompleted(e.target.checked);
                 break;
-            case 'review':
-                setReview(value)
+            case "review":
+                setReview(value);
                 break;
 
 
@@ -52,7 +55,7 @@ export default function Create() {
         e.preventDefault();
 
         const newBook = {
-            id: crypto.randomUUID,
+            id: crypto.randomUUID(),
             title,
             author,
             cover,
@@ -67,6 +70,7 @@ export default function Create() {
 
     return (
         <div>
+            <Link to="/">Home</Link>
             <form onSubmit={handleSubmit}>
                 <div>
                     <div>Title</div>

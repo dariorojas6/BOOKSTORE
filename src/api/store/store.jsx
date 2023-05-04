@@ -2,12 +2,12 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 const AppContext = createContext({
     items: [],
-    createItem: (item) => { },
-    getItem: (id) => { },
-    updateItem: (item) => { },
+    createItem: (item) => {},
+    getItem: (id) => {},
+    updateItem: (item) => {},
 });
 export default function Store({ children }) {
-    const { items, setItems } = useState([]);
+    const [ items, setItems ] = useState([]);
 
     function createItem(item) {
         const temp = [...items];
@@ -17,7 +17,7 @@ export default function Store({ children }) {
     }
 
     function getItem(id) {
-        const item = items.find(item => item.id === id);
+        const item = items.find((item) => item.id === id);
         return item;
     }
 
@@ -28,7 +28,8 @@ export default function Store({ children }) {
         temp[index] = { ...item };
     }
 
-    return <AppContext.Provider value={{
+    return <AppContext.Provider 
+    value={{
         items,
         createItem,
         getItem,
