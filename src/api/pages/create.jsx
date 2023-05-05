@@ -3,6 +3,7 @@ import { useAppContext } from "../store/store";
 
 
 import Layout from "../components/layout";
+import { useNavigate } from "react-router-dom";
 
 export default function Create() {
     const [title, setTitle] = useState("");
@@ -13,6 +14,7 @@ export default function Create() {
     const [review, setReview] = useState("");
 
     const store = useAppContext();
+    const navigate = useNavigate();
 
     function handleChange(e) {
         const name = e.target.name;
@@ -67,6 +69,7 @@ export default function Create() {
 
         // TODO: mandar a registrar el libro
         store.createItem(newBook);
+        navigate("/")
     }
 
     return (
