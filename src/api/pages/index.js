@@ -11,8 +11,19 @@ export default function Index() {
         flexWrap: "wrap",
         gap: "10px",
     }
+     const caja = { 
+        fontFamily: "sans-serif", 
+        fontSize: "25px", 
+        fontWeight: "400", 
+        color: "#ffffff", 
+
+        margin: "15px",
+        textAlign: "center"
+     }
+        
     return (
         <Layout>
+            <div style={caja}>Book Store</div>
             <div style={booksContainer}>
                 {store.items.map((item) => (
                     <Book key={item.id} item={item}></Book>
